@@ -4,6 +4,16 @@
 - [Время двигаться!](#время-двигаться)
 
 
+## Подготовка
+
+Для работы с камерой и джойстиком необходимо установить следующее пакеты:
+
+```bash
+sudo apt install \
+    ros-noetic-usb-cam\
+    ros-noetic-joy
+```
+
 ## Что мы видим?
 
 На наших роботах установлены вот такие вот камеры:
@@ -39,10 +49,10 @@ roscd usb_cam
 </launch>
 ```
 
-Давайте внутри нашего пакета создадим папку  ```kitty_vision```, а в ней папку ```launch```, а там ```drivers``` и скопируем туда этот launch, например, под названием ```start_usb_cam.launch``` и попробуем его запустить, а для этого:
+Давайте внутри нашего пакета в папке ```launch``` создадим папку ```drivers``` и скопируем туда этот launch, например, под названием ```start_usb_cam.launch``` и попробуем его запустить, а для этого:
 
 ```
-roslaunch kitty_package start_usb_cam.launch
+roslaunch super_robot_package start_usb_cam.launch
 ```
 
 Если у вас вышла ошибка, и камера не запустилась, то ничего страшного, возможно дело в том, что мы пытаемся открыть в `launch` не существующую камеру, нам нужно проверить какое значение `/dev/video` имеет наше камера. Для этого в терминале нам нужно выполнить
@@ -140,7 +150,7 @@ TURTLEBOT3_MODEL=waffle roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 | 4      | Крестовина влево/вправо                  |
 | 5      | Крестовина вверх/вниз                   |
 
-Перейдем к запуску нашего джойстика. Давайте создадим launch файл, к примеру, ```my_joy_launch.launch```, для этого внутри нашего пакета создадим папку  ```kitty_software```, а в ней папку ```launch```, а там ```drivers```
+Перейдем к запуску нашего джойстика. Давайте создадим launch файл, к примеру, ```my_joy_launch.launch``` и вставим следующее содержимое
 
 ```xml
 <launch>
@@ -152,7 +162,7 @@ TURTLEBOT3_MODEL=waffle roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 Запустим его:
 
 ```bash
-roslaunch kitty_package my_joy_launch.launch
+roslaunch super_robot_package my_joy_launch.launch
 ```
 
 <p align="center">
@@ -178,7 +188,7 @@ enable_turbo_button: 5  # Right trigger button
 ```xml
 <launch>
   <arg name="joy_dev" default="/dev/input/js0" />
-  <arg name="config_filepath" default="$(find kitty_package)/config/joy.config.yaml" />
+  <arg name="config_filepath" default="$(find super_robot_package)/config/joy.config.yaml" />
   
   <node pkg="joy" type="joy_node" name="joy_node">
     <param name="dev" value="$(arg joy_dev)" />
@@ -197,7 +207,7 @@ TURTLEBOT3_MODEL=waffle roslaunch turtlebot3_gazebo turtlebot3_world.launch
 ```
 
 ```bash
-roslaunch kitty_package my_joy_launch.launch
+roslaunch super_robot_package my_joy_launch.launch
 ```
 Для движения нашего робота нужно держать кнопку `X` или если мы хотим прокатиться в турбо режиме - `RB`
 

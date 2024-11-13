@@ -27,22 +27,22 @@ else
 fi
 
 # YDLidarSDK
-SDK_config_file="/usr/local/lib/cmake/ydlidar_sdk/ydlidar_sdkConfig.cmake"
+# SDK_config_file="/usr/local/lib/cmake/ydlidar_sdk/ydlidar_sdkConfig.cmake"
 
-if [ -f "$SDK_config_file" ]; then
-    echo "The YDLidar SDK is already installed"
-else
-    # based on https://www.ydlidar.com/Public/upload/files/2022-06-21/YDLIDAR%20X2%20Lidar%20User%20Manual%20V1.3(211228).pdf
-    git clone https://github.com/YDLIDAR/YDLidar-SDK.git
-    mkdir -p YDLidar-SDK/build
-    cd YDLidar-SDK/build
-    curl -o initenv.sh https://raw.githubusercontent.com/YDLIDAR/ydlidar_ros_driver/master/startup/initenv.sh && \
-        chmod +x initenv.sh && \
-        sh initenv.sh
-    cmake ..
-    make
-    sudo make install
-    cd ../..
-    rm -rf YDLidar-SDK
-fi
+# if [ -f "$SDK_config_file" ]; then
+#     echo "The YDLidar SDK is already installed"
+# else
+#     # based on https://www.ydlidar.com/Public/upload/files/2022-06-21/YDLIDAR%20X2%20Lidar%20User%20Manual%20V1.3(211228).pdf
+#     git clone https://github.com/YDLIDAR/YDLidar-SDK.git
+#     mkdir -p YDLidar-SDK/build
+#     cd YDLidar-SDK/build
+#     curl -o initenv.sh https://raw.githubusercontent.com/YDLIDAR/ydlidar_ros_driver/master/startup/initenv.sh && \
+#         chmod +x initenv.sh && \
+#         sh initenv.sh
+#     cmake ..
+#     make
+#     sudo make install
+#     cd ../..
+#     rm -rf YDLidar-SDK
+# fi
 
