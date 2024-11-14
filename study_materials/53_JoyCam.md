@@ -98,25 +98,9 @@ ls /dev/video*
 
 Видим огромное количество каких-то чисел, как вы думаете, что они означают?
 
-## Время двигаться!
+## Управление с помощью джойстика
 
-```bash
-TURTLEBOT3_MODEL=waffle roslaunch turtlebot3_gazebo turtlebot3_world.launch
-```
-
-```bash
-TURTLEBOT3_MODEL=waffle roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
-```
-
-<p align="center">
-<img src="../assets/lesson_02/teleop01.png" width=500>
-</p>
-
-<p align="center">
-<img src="../assets/lesson_02/teleop02.png" width=500>
-</p>
-
-Беспроводный геймпад Logitech F710 – это универсальный и популярный геймпад, предназначенный для использования как с ПК, так и с устройствами на платформе Android. Он предлагает беспроводное подключение и ряд функций.
+Беспроводный геймпад Logitech F710 – это универсальный и популярный геймпад, предназначенный для использования с ПК. Он предлагает беспроводное подключение и ряд функций.
 
 <p align="center">
 <img src="../assets/lesson_02/joy.jpg" width=300>
